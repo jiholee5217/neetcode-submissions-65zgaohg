@@ -1,0 +1,15 @@
+class Solution:
+    def longestConsecutive(self, nums: List[int]) -> int:
+        numSet = set(nums)
+        maxLen = 0
+        for n in numSet:
+            length = 1
+            if n - 1 not in numSet:
+                while n + length in numSet:
+                    length += 1
+            maxLen = max(length, maxLen)
+        return maxLen
+
+# loop through all the nums and see if there exists a number 1
+# below it 
+
